@@ -8,12 +8,15 @@ load_dotenv(dotenv_path="./.env.local")
 
 UNSPLASH_URL="https://api.unsplash.com/photos/random"
 UNSPLASH_KEY=os.environ.get("UNSPLASH_KEY", "")
+DEBUG=bool(os.environ.get("DEBUG", True))
+print(DEBUG)
 
 if not UNSPLASH_KEY:
   raise EnvironmentError("Please....")
 
 
 application = Flask(__name__)
+application.config["DEBUG"]= DEBUG
 
 @application.route('/')
 def home():
@@ -35,4 +38,4 @@ def new_image():
   return data 
 
 if __name__=='__main__':
-  application.run(debug=True, host="0.0.0.0", port=5050)  
+  application.run(host="0.0.0.0", port=5050)  
