@@ -3,6 +3,8 @@ from flask import Flask, request
 import requests
 from dotenv import load_dotenv
 
+print("Hello")
+
 load_dotenv(dotenv_path="./.env.local")
 
 UNSPLASH_URL="https://api.unsplash.com/photos/random"
