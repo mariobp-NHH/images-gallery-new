@@ -6,7 +6,8 @@ import ImageCard from './components/ImageCard';
 import Welcome from './components/Welcome';
 import { Container, Row, Col } from 'react-bootstrap';
 
-const UNPLASH_KEY = process.env.REACT_APP_UNSPLASH_KEY;
+/* const UNPLASH_KEY = process.env.REACT_APP_UNSPLASH_KEY; */
+const API_URL = process.env.REACT_APP_API_URL || 'http://0.0.0.0:5000';
 
 const App = () => {
   const [word, setWord] = useState('');
@@ -16,9 +17,7 @@ const App = () => {
 
   const handleSearchSubmit = (e) => {
     e.preventDefault(); // Correct spelling
-    fetch(
-      `https://api.unsplash.com/photos/random/?query=${word}&client_id=${UNPLASH_KEY}`,
-    )
+    fetch(`${API_URL}/new-image?query=${word}`)
       .then((res) => res.json())
       .then((data) => {
         setImages([{ ...data, title: word }, ...images]);

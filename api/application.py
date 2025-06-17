@@ -2,6 +2,7 @@ import os
 from flask import Flask, request
 import requests
 from dotenv import load_dotenv
+from flask_cors import CORS
 
 
 load_dotenv(dotenv_path="./.env.local")
@@ -17,6 +18,7 @@ if not UNSPLASH_KEY:
 
 application = Flask(__name__)
 application.config["DEBUG"]= DEBUG
+CORS(application)
 
 @application.route('/')
 def home():
@@ -38,4 +40,4 @@ def new_image():
   return data 
 
 if __name__=='__main__':
-  application.run(host="0.0.0.0", port=5050)  
+  application.run(host="0.0.0.0", port=5000)  
