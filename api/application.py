@@ -22,7 +22,7 @@ CORS(application)
 
 @application.route('/')
 def home():
-  return "<h1>Welcome Home</h1>"
+  return "<h1>Welcome Home, Mario!</h1>"
 
 @application.route('/new-image')
 def new_image():
