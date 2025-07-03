@@ -20,6 +20,7 @@ application = Flask(__name__)
 application.config["DEBUG"]= DEBUG
 CORS(application)
 
+
 @application.route('/')
 def home():
   return "<h1>Welcome Home, Mario!</h1>"
